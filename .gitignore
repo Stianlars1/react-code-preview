@@ -1,6 +1,6 @@
 # Source files
 #src/
-dist/
+#dist/
 
 # TypeScript files
 # **/*.ts
