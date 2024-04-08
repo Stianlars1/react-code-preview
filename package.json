@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc && shx mkdir -p dist/main/css/ && shx mkdir -p dist/main/components/copyButton/css/ && shx cp src/main/css/codePreview.css dist/main/css/ && shx cp src/main/components/copyButton/css/copyButton.css dist/main/components/copyButton/css/",
+    "build": "tsc && shx mkdir -p dist/main/css/ && shx mkdir -p dist/main/components/copyButton/css/ && shx cp src/main/css/codePreview.css dist/main/css/ && shx cp src/main/components/copyButton/css/copyButton.css dist/main/components/copyButton/css/ && shx cp src/assets/code.png dist/assets/ && shx cp src/assets/preview.png dist/assets/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/Stianlars1/react-code-preview.git",
