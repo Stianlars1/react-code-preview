@@ -1,0 +1,14 @@
+.copy-button {
+  background-color: transparent;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border-color: hsl(var(--muted-foreground)/0.5);
+  padding: 0.4rem !important;
+}
+.copy-button .copy-icon {
+  fill: none !important;
+}
+.copy-button:hover {
+  background-color: hsl(var(--muted-foreground)/0.5);
+}/*# sourceMappingURL=copyButton.css.map */

@@ -1,0 +1,8 @@
+make dir with shx
+shx mkdir -p dist/components/button/css/
+
+copy with shx
+shx cp src/components/button/css/button.css dist/components/button/css/
+
+
+"build": "tsc && shx mkdir -p dist/src/main/css/ && shx mkdir -p dist/src/components/copyButton/css/ && shx cp src/main/css/codePreview.css dist/src/css/ && shx cp src/components/copyButton/css/copyButton.css dist/src/components/copyButton/css/"

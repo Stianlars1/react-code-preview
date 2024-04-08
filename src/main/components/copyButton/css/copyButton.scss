@@ -1,0 +1,26 @@
+// // utils
+// --radius: 0.5rem;
+
+// // == Light Theme ==
+// --background: 0 0% 100%;
+// --background-editor: 240 6% 10%;
+// --foreground: 240 10% 3.9%;
+// --muted: 240 6% 10%;
+// --muted-foreground: 240 3.8% 46.1%;
+// --border: 240 5.9% 90%;
+.copy-button {
+  background-color: transparent;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  border-color: hsl(var(--muted-foreground) / 0.5);
+  padding: 0.4rem !important;
+  .copy-icon {
+    fill: none !important;
+  }
+
+  &:hover {
+    background-color: hsl(var(--muted-foreground) / 0.5);
+  }
+}

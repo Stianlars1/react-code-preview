@@ -1,0 +1,42 @@
+{
+  "name": "@stianlarsen/react-code-preview",
+  "version": "1.0.1",
+  "description": "A React component that provides tabbed navigation for viewing a live component preview and its source code separately.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && shx mkdir -p dist/main/css/ && shx mkdir -p dist/main/components/copyButton/css/ && shx cp src/main/css/codePreview.css dist/main/css/ && shx cp src/main/components/copyButton/css/copyButton.css dist/main/components/copyButton/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/Stianlars1/react-code-preview.git",
+  "homepage": "https://react-code-preview.dev",
+  "keywords": [
+    "react",
+    "code",
+    "preview",
+    "component",
+    "live",
+    "syntax",
+    "highlighting"
+  ],
+  "author": "Stian Larsen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Stianlars1/react-code-preview/issues"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.24",
+    "@types/react-dom": "^18.2.24",
+    "shiki": "^1.2.4",
+    "typescript": "^5.4.4"
+  },
+  "dependencies": {
+    "@stianlarsen/copy-to-clipboard": "^1.0.4",
+    "@stianlarsen/react-ui-kit": "^1.1.4",
+    "shx": "^0.3.4"
+  }
+}
