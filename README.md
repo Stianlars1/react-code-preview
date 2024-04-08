@@ -119,6 +119,58 @@ Here are the CSS custom properties you can override:
 
 Adjusting these variables in your project's global CSS will affect the `CodePreview` component styling throughout your application.
 
+## `CodePreview` Component Props
+
+The `CodePreview` component accepts several props to customize its behavior and appearance:
+
+| Prop         | Type                | Description                                                                                   |
+| ------------ | ------------------- | --------------------------------------------------------------------------------------------- |
+| `component`  | `() => JSX.Element` | The React component to render in the live preview.                                            |
+| `code`       | `string`            | The source code of the component as a string for display.                                     |
+| `lightTheme` | `Themes`            | The theme to use for light mode, defaults to "blackout".                                      |
+| `darkTheme`  | `Themes`            | The theme to use for dark mode, follows system preference if not set. Defaults to "blackout". |
+| `className`  | `string`            | An optional CSS class to apply custom styling.                                                |
+| `style`      | `CSSProperties`     | Optional inline styles.                                                                       |
+| `initialTab` | `TabsType`          | The initial tab to be active ("preview" or "code").                                           |
+
+## Using with Next.js
+
+The `CodePreview` component works out of the box with Next.js. Ensure to use the component within a Next.js page or component that supports client-side rendering. Add the `use client` directive at the top of your file.
+
+```jsx
+// Next.js component file
+"use client";
+import { CodePreview } from "@stianlarsen/react-code-preview";
+// ... your component code
+```
+
+## Converting Components to Code Strings
+
+To use a React component with the `CodePreview` component, you'll need to convert it to a string. Here are some methods:
+
+- Manually create a string variable containing your component's code.
+- Use a `.md` or `.txt` file with your component's code, which can be imported as a raw string.
+- For Next.js, set up your webpack config to handle `.md` or `.txt` files as raw text. (`.txt` requires [raw-loader](https://www.npmjs.com/package/raw-loader?activeTab=readme))
+
+Example webpack config for Next.js:
+
+```js
+// next.config.js
+module.exports = {
+  webpack: (config, options) => {
+    config.module.rules.push({
+      test: /\.md$/,
+      type: "asset/source",
+    });
+    config.module.rules.push({
+      test: /\.txt$/,
+      use: "raw-loader",
+    });
+    return config;
+  },
+};
+```
+
 ## Contributing
 
 Feel free to contribute to @stianlarsen/react-code-preview by submitting issues and pull requests. Let's make this tool even better, together!

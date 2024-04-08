@@ -92,9 +92,6 @@
     overflow: hidden;
     position: relative;
 
-    // copy and copy success icon
-    .icon {
-    }
     &__component-wrapper {
       display: flex;
       justify-content: center;
@@ -120,9 +117,6 @@
           padding: 0;
           counter-reset: line;
           -webkit-box-decoration-break: clone;
-
-          span {
-          }
 
           .line {
             display: inline-block;

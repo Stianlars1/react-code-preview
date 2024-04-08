@@ -2,7 +2,7 @@ import { Loader } from "@stianlarsen/react-ui-kit";
 import { Suspense, useState } from "react";
 import { useHighlightCode } from "../hooks/useHighlightCode";
 import { defaultDarkTheme } from "../libs/theme/theme";
-import { CodePreviewProps } from "../types/types";
+import { CodePreviewProps, TabsType } from "../types/types";
 import { cn } from "../utils/cn";
 import { CopyButton } from "./components/copyButton/copyButton";
 import { Tabs } from "./components/tabs/tabs";
@@ -15,8 +15,9 @@ export const CodePreview = ({
   darkTheme = defaultDarkTheme,
   className,
   style,
+  initialTab = "preview",
 }: CodePreviewProps) => {
-  const [activeTab, setActiveTab] = useState("preview");
+  const [activeTab, setActiveTab] = useState<TabsType>(initialTab);
   const { highlightedCode, codeString } = useHighlightCode(
     code,
     lightTheme,
