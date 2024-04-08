@@ -119,19 +119,23 @@ Here are the CSS custom properties you can override:
 
 Adjusting these variables in your project's global CSS will affect the `CodePreview` component styling throughout your application.
 
+A recent update has made the `CodePreview` component even more flexible and user-friendly. Now, you no longer need to pass in the "component" prop for simpler use cases. This is particularly useful if you don't require tabs to switch between preview and code, allowing for a code-only display.
+
+Additionally, a copy button has been added to the code window, making it easier to copy the code to your clipboard.
+
 ## `CodePreview` Component Props
 
 The `CodePreview` component accepts several props to customize its behavior and appearance:
 
-| Prop         | Type                | Description                                                                                   |
-| ------------ | ------------------- | --------------------------------------------------------------------------------------------- |
-| `component`  | `() => JSX.Element` | The React component to render in the live preview.                                            |
-| `code`       | `string`            | The source code of the component as a string for display.                                     |
-| `lightTheme` | `Themes`            | The theme to use for light mode, defaults to "blackout".                                      |
-| `darkTheme`  | `Themes`            | The theme to use for dark mode, follows system preference if not set. Defaults to "blackout". |
-| `className`  | `string`            | An optional CSS class to apply custom styling.                                                |
-| `style`      | `CSSProperties`     | Optional inline styles.                                                                       |
-| `initialTab` | `TabsType`          | The initial tab to be active ("preview" or "code").                                           |
+| Prop         | Type                | Description                                                                                                  |
+| ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `component`  | `() => JSX.Element` | _Optional._ The React component to render in the live preview. If not provided, only code will be displayed. |
+| `code`       | `string`            | The source code of the component as a string for display.                                                    |
+| `lightTheme` | `Themes`            | The theme to use for light mode, defaults to "blackout".                                                     |
+| `darkTheme`  | `Themes`            | The theme to use for dark mode, follows system preference if not set. Defaults to "blackout".                |
+| `className`  | `string`            | An optional CSS class to apply custom styling.                                                               |
+| `style`      | `CSSProperties`     | Optional inline styles.                                                                                      |
+| `initialTab` | `TabsType`          | The initial tab to be active ("preview" or "code").                                                          |
 
 ## Using with Next.js
 

@@ -4,10 +4,12 @@
   top: 0.5rem;
   right: 0.5rem;
   border-color: hsl(var(--muted-foreground)/0.5);
+  background-color: hsl(0, 0%, 0%);
   padding: 0.4rem !important;
 }
 .copy-button .copy-icon {
   fill: none !important;
+  color: hsl(0, 0%, 98%);
 }
 .copy-button:hover {
   background-color: hsl(var(--muted-foreground)/0.5);

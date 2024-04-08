@@ -7,8 +7,8 @@ import { useTheme } from "./useTheme";
 
 export function useHighlightCode(
   codeString: string,
-  lightTheme: Themes,
-  darkTheme: Themes
+  lightTheme?: Themes,
+  darkTheme?: Themes
 ): UseHighlightCode {
   const [highlightedCode, setHighlightedCode] = useState<string>("");
   const [formattedCodeString] = useState<string>(getCodeString(codeString));
@@ -23,10 +23,10 @@ export function useHighlightCode(
       });
 
       let themeToLoad =
-        lightTheme === darkTheme
-          ? (blackout as any)
-          : theme === "dark" && darkTheme
+        theme === "dark"
           ? darkTheme
+            ? darkTheme
+            : "blackout"
           : lightTheme
           ? lightTheme
           : "blackout";
@@ -47,7 +47,7 @@ export function useHighlightCode(
     };
 
     highlightCodeAsync();
-  }, [theme]);
+  }, [darkTheme, lightTheme, theme]);
 
   return { highlightedCode, codeString: formattedCodeString };
 }
