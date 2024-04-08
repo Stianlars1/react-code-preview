@@ -99,12 +99,16 @@
       width: 100%;
       min-height: 250px;
       padding: 1rem;
+      max-height: 650px;
+      overflow-y: scroll;
     }
 
     &__code-wrapper {
       pre {
         padding: 1rem 0;
         background-color: hsl(var(--background-editor));
+        max-height: 650px;
+        overflow-y: scroll;
         code {
           font-size: 0.875rem;
           line-height: 1.25;
