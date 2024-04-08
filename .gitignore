@@ -1,5 +1,6 @@
 # Source files
-# src/
+#src/
+dist/
 
 # TypeScript files
 # **/*.ts
@@ -15,3 +16,5 @@ node_modules/
 .npmignore
 .npmrc
 
+*.txt
+shx.txt
