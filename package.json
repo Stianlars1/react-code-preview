@@ -26,7 +26,8 @@
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "shiki": "^1.2.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.24",
@@ -36,6 +37,7 @@
   },
   "dependencies": {
     "@stianlarsen/copy-to-clipboard": "^1.0.4",
-    "@stianlarsen/react-ui-kit": "^1.1.4"
+    "@stianlarsen/react-ui-kit": "^1.1.4",
+    "shx": "^0.3.4"
   }
 }
