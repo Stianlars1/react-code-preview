@@ -81,6 +81,7 @@
   align-items: center;
   width: 100%;
   min-height: 250px;
+  padding: 1rem;
 }
 .code-preview__content__code-wrapper pre {
   padding: 1rem 0;
