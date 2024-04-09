@@ -114,7 +114,7 @@
         height: 100%;
         code {
           font-size: 0.875rem;
-          line-height: 1.25;
+          line-height: 1.25rem;
 
           display: grid;
           min-width: 100%;
@@ -125,6 +125,7 @@
           padding: 0;
           counter-reset: line;
           -webkit-box-decoration-break: clone;
+          overflow-x: scroll;
 
           .line {
             display: inline-block;
