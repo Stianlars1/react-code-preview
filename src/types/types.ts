@@ -13,7 +13,7 @@ export interface PreviewOnlyCodeProps {
 }
 
 export interface CodeAndPreviewProps {
-  component: () => JSX.Element;
+  component: (() => JSX.Element) | JSX.Element | React.ComponentType<any>;
   code: string;
   lightTheme?: Themes;
   darkTheme?: Themes;
@@ -27,4 +27,5 @@ export type CodePreviewProps = PreviewOnlyCodeProps | CodeAndPreviewProps;
 export interface UseHighlightCode {
   highlightedCode: string;
   codeString: string;
+  loadingCode: boolean;
 }

@@ -1,5 +1,12 @@
 import { Loader } from "@stianlarsen/react-ui-kit";
-import { Suspense, useState } from "react";
+import {
+  ComponentType,
+  ReactElement,
+  ReactNode,
+  Suspense,
+  isValidElement,
+  useState,
+} from "react";
 import { useHighlightCode } from "../../../hooks/useHighlightCode";
 import { defaultDarkTheme } from "../../../libs/theme/theme";
 import { CodeAndPreviewProps, TabsType } from "../../../types/types";
@@ -18,7 +25,7 @@ export const CodeAndExamplePreview = ({
   initialTab = "preview",
 }: CodeAndPreviewProps) => {
   const [activeTab, setActiveTab] = useState<TabsType>(initialTab);
-  const { highlightedCode, codeString } = useHighlightCode(
+  const { highlightedCode, codeString, loadingCode } = useHighlightCode(
     code,
     lightTheme,
     darkTheme
@@ -32,18 +39,34 @@ export const CodeAndExamplePreview = ({
         <div className="code-preview__content">
           {activeTab === "preview" && PreviewComponent && (
             <div className="code-preview__content__component-wrapper">
-              <PreviewComponent />
+              {renderComponent(PreviewComponent)}
             </div>
           )}
 
-          {activeTab === "code" && highlightedCode && (
+          {loadingCode && activeTab !== "preview" && (
+            <div
+              className="code-preview__content__code-loader"
+              style={{
+                height: "fit-content",
+                width: "fit-content",
+                padding: "1rem",
+                marginLeft: "86px",
+              }}
+            >
+              <Loader widthAndHeight={26} />
+            </div>
+          )}
+
+          {activeTab === "code" && highlightedCode && !loadingCode && (
             <>
               <CopyButton value={codeString} />
 
-              <div
-                className="code-preview__content__code-wrapper"
-                dangerouslySetInnerHTML={{ __html: highlightedCode }}
-              />
+              {!loadingCode && (
+                <div
+                  className="code-preview__content__code-wrapper"
+                  dangerouslySetInnerHTML={{ __html: highlightedCode }}
+                />
+              )}
             </>
           )}
         </div>
@@ -51,3 +74,14 @@ export const CodeAndExamplePreview = ({
     </Suspense>
   );
 };
+
+function renderComponent(
+  component: ComponentType<any> | ReactElement
+): ReactNode {
+  if (isValidElement(component)) {
+    return component;
+  } else {
+    const Component = component as ComponentType<any>;
+    return <Component />;
+  }
+}
