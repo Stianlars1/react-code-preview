@@ -98,6 +98,7 @@
   height: 100%;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
+  overflow: auto;
 }
 .code-preview__content__code-wrapper pre {
   padding: 1rem 0;

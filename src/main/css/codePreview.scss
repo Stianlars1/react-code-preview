@@ -119,6 +119,8 @@
 
       border: 1px solid hsl(var(--border));
       border-radius: var(--radius);
+
+      overflow: auto;
       pre {
         padding: 1rem 0;
         background-color: hsl(var(--background-editor));
