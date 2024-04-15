@@ -1,5 +1,7 @@
 # @stianlarsen/react-code-preview
 
+###### From version 1.0.19 package size has been minified by 50%
+
 A versatile React component that allows for toggling between a live preview and the source code of React components. This is especially useful for developers who wish to present both how a component looks and how it is implemented within the same UI space.
 
 ![Code Interface](./dist/assets/code.png)
