@@ -1,6 +1,6 @@
 # Source files
 #src/
-#dist/
+dist/
 
 # TypeScript files
 # **/*.ts
@@ -15,6 +15,7 @@ node_modules/
 # tsconfig.json
 .npmignore
 .npmrc
+.gitignore
 
 *.txt
 shx.txt
