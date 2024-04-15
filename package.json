@@ -1,6 +1,6 @@
 {
   "name": "@stianlarsen/react-code-preview",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "A React component that provides tabbed navigation for viewing a live component preview and its source code separately.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
