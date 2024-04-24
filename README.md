@@ -4,8 +4,8 @@
 
 A versatile React component that allows for toggling between a live preview and the source code of React components. This is especially useful for developers who wish to present both how a component looks and how it is implemented within the same UI space.
 
-![Code Interface](./dist/assets/code.png)
-![Preview Interface](./dist/assets/preview.png)
+![Code Interface](https://github.com/Stianlars1/react-code-preview/blob/d7781034899bb99a32b7f528d4417453dc3bfab4/src/assets/code.png)
+![Preview Interface](https://github.com/Stianlars1/react-code-preview/blob/d7781034899bb99a32b7f528d4417453dc3bfab4/src/assets/preview.png)
 _The intuitive tabbed interface of @stianlarsen/react-code-preview_
 
 ## Features
