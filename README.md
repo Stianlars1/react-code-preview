@@ -112,6 +112,7 @@ Here are the CSS custom properties you can override:
   --cp-foreground: 240 10% 3.9%;
   --cp-muted-foreground: 240 3.8% 46.1%;
   --cp-border: 240 5.9% 90%;
+  --cp-black: hsl(0 0 0%);
 }
 ```
 
