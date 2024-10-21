@@ -1,11 +1,18 @@
 # @stianlarsen/react-code-preview
 
+## New in Version 1.1.0: Scoped CSS Variables for Improved Customization
+
+In this version, CSS variables have been updated and scoped to individual components to prevent interference with your global styles. If you are using previous versions, some existing CSS variable names may no longer be recognized. We recommend checking your custom overrides.
+
+- **Breaking Change Notice**: Scoped CSS variables now use a `--cp-` prefix.
+- **Customizing Colors**: Refer to the new list of available CSS variables that can be customized within the `CodePreview` scope.
+
 ###### From version 1.0.19 package size has been minified by 50%
 
 A versatile React component that allows for toggling between a live preview and the source code of React components. This is especially useful for developers who wish to present both how a component looks and how it is implemented within the same UI space.
 
-![Code Interface](https://github.com/Stianlars1/react-code-preview/blob/d7781034899bb99a32b7f528d4417453dc3bfab4/src/assets/code.png)
-![Preview Interface](https://github.com/Stianlars1/react-code-preview/blob/d7781034899bb99a32b7f528d4417453dc3bfab4/src/assets/preview.png)
+![Code Interface](https://github.com/Stianlars1/react-code-preview/raw/d7781034899bb99a32b7f528d4417453dc3bfab4/src/assets/code.png)
+![Preview Interface](https://github.com/Stianlars1/react-code-preview/raw/d7781034899bb99a32b7f528d4417453dc3bfab4/src/assets/preview.png)
 _The intuitive tabbed interface of @stianlarsen/react-code-preview_
 
 ## Features
@@ -44,7 +51,7 @@ export const ButtonDemo = () => {
 ```
 
 ````md
-// src/buttonDemoCode.[md | txt | string (as long as you get a plain string)] (example under showcasing hte use of .md file for your codeString)
+// src/buttonDemoCode.[md | txt | string (as long as you get a plain string)] (example under showcasing the use of .md file for your codeString)
 
 ```jsx
 export const ButtonDemo = () => {
@@ -77,7 +84,7 @@ function App() {
 
 You can specify themes for both light and dark mode. Default (If no lightTheme or darkTheme is passed in) is "blackout" which is black and white for both dark and light mode.
 
-The theme follow the users system preferences through the media queries (prefers-color-scheme).
+The theme follows the user's system preferences through the media queries (`prefers-color-scheme`).
 
 Here's an example using the 'nord' theme for dark mode and 'github-light' for light mode:
 
@@ -94,32 +101,21 @@ The `lightTheme` and `darkTheme` props accept any of the bundled themes from [sh
 
 ## Customization
 
-To further customize the look and feel of the `CodePreview` component, you can provide your own HSL values for color variables defined at the root in your global CSS file. This allows you to tailor the component to match your application's design language with ease.
+To further customize the look and feel of the `CodePreview` component, you can provide your own HSL values for color variables defined specifically for the `.code-preview` scope. This allows you to tailor the component to match your application's design language with ease, without affecting other components.
 
 Here are the CSS custom properties you can override:
 
 ```css
-:root {
-  --radius: 0.5rem;
-
-  --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
-  --muted: 240 6% 10%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --border: 240 5.9% 90%;
-  --ring: 240 5% 64.9%;
-
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-}
-
-.test-class {
-  background-color: hsl(var(--muted) / 0.5);
+.code-preview {
+  --cp-radius: 0.5rem;
+  --cp-background: 0 0% 100%;
+  --cp-foreground: 240 10% 3.9%;
+  --cp-muted-foreground: 240 3.8% 46.1%;
+  --cp-border: 240 5.9% 90%;
 }
 ```
 
-Adjusting these variables in your project's global CSS will affect the `CodePreview` component styling throughout your application.
+Adjusting these variables in your CSS will affect the `CodePreview` component styling without impacting the rest of your application.
 
 A recent update has made the `CodePreview` component even more flexible and user-friendly. Now, you no longer need to pass in the "component" prop for simpler use cases. This is particularly useful if you don't require tabs to switch between preview and code, allowing for a code-only display.
 
