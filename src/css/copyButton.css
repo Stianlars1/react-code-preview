@@ -15,4 +15,10 @@
 .copy-button:hover {
   --cp-black: hsl(0, 0%, 13%);
   background-color: var(--cp-black);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .copy-button .copy-icon {
+    color: var(--cp-foreground);
+  }
 }/*# sourceMappingURL=copyButton.css.map */
