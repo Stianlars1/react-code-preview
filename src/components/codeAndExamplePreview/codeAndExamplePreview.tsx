@@ -1,5 +1,5 @@
 import { Loader } from "@stianlarsen/react-ui-kit";
-import {
+import React, {
   ComponentType,
   ReactElement,
   ReactNode,
@@ -7,11 +7,11 @@ import {
   isValidElement,
   useState,
 } from "react";
-import { useHighlightCode } from "../../../hooks/useHighlightCode";
-import { defaultDarkTheme } from "../../../libs/theme/theme";
-import { CodeAndPreviewProps, TabsType } from "../../../types/types";
-import { cn } from "../../../utils/cn";
 import "../../css/codePreview.css";
+import { useHighlightCode } from "../../hooks/useHighlightCode";
+import { defaultDarkTheme } from "../../libs/theme/theme";
+import { CodeAndPreviewProps, TabsType } from "../../types/types";
+import { cn } from "../../utils/cn";
 import { CopyButton } from "../copyButton/copyButton";
 import { Tabs } from "../tabs/tabs";
 

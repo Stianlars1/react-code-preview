@@ -1,16 +1,17 @@
 {
   "name": "@stianlarsen/react-code-preview",
-  "version": "1.0.21",
+  "version": "1.1.0",
   "description": "A React component that provides tabbed navigation for viewing a live component preview and its source code separately.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "!src/**",
-    "dist/**"
+    "dist",
+    "types"
   ],
   "scripts": {
-    "build": "tsc && shx mkdir -p dist/main/css/ && shx mkdir -p dist/main/components/copyButton/css/ && shx cp src/main/css/codePreview.css dist/main/css/ && shx cp src/main/components/copyButton/css/copyButton.css dist/main/components/copyButton/css/ && shx cp src/assets/code.png dist/assets/ && shx cp src/assets/preview.png dist/assets/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist && tsc && shx mkdir -p dist/css/ && shx mkdir -p dist/assets  && shx cp  src/css/codePreview.css dist/css/ && shx cp src/css/copybutton.css dist/css/ && shx cp src/assets/code.png dist/assets/ && shx cp src/assets/preview.png dist/assets/",
+    "prepare": "npm run build"
   },
   "repository": "https://github.com/Stianlars1/react-code-preview.git",
   "homepage": "https://react-code-preview.dev",
@@ -29,15 +30,16 @@
     "url": "https://github.com/Stianlars1/react-code-preview/issues"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "shiki": "^1.2.4"
   },
   "devDependencies": {
-    "@types/react": "^18.2.24",
+    "@types/react": "^18.3.11",
     "@types/react-dom": "^18.2.24",
     "shiki": "^1.2.4",
-    "typescript": "^5.4.4"
+    "shx": "^0.3.4",
+    "typescript": "^5.6.2"
   },
   "dependencies": {
     "@stianlarsen/copy-to-clipboard": "^1.0.4",

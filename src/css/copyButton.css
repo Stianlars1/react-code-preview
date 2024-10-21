@@ -1,0 +1,18 @@
+.copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border-color: var(--cp-muted-foreground);
+  background-color: var(--cp-black);
+  color: var(--cp-background);
+  padding: 0.4rem !important;
+  transition: all 0.2s ease;
+}
+.copy-button .copy-icon {
+  fill: none !important;
+  color: var(--cp-background);
+}
+.copy-button:hover {
+  --cp-black: hsl(0, 0%, 13%);
+  background-color: var(--cp-black);
+}/*# sourceMappingURL=copyButton.css.map */

@@ -1,9 +1,9 @@
 import { Loader } from "@stianlarsen/react-ui-kit";
-import { Suspense } from "react";
-import { useHighlightCode } from "../../../hooks/useHighlightCode";
-import { PreviewOnlyCodeProps } from "../../../types/types";
-import { cn } from "../../../utils/cn";
+import React, { Suspense } from "react";
 import "../../css/codePreview.css";
+import { useHighlightCode } from "../../hooks/useHighlightCode";
+import { PreviewOnlyCodeProps } from "../../types/types";
+import { cn } from "../../utils/cn";
 import { CopyButton } from "../copyButton/copyButton";
 
 export const CodeOnlyPreview = (props: PreviewOnlyCodeProps) => {

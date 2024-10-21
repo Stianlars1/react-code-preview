@@ -1,9 +1,9 @@
 import { copy } from "@stianlarsen/copy-to-clipboard";
 import { Button } from "@stianlarsen/react-ui-kit";
-import { useState } from "react";
-import { CopyIcon } from "../../../assets/icons/copyIcon";
-import { CopySuccessIcon } from "../../../assets/icons/copySuccessIcon";
-import "./css/copyButton.css";
+import React, { useState } from "react";
+import { CopyIcon } from "../../assets/icons/copyIcon";
+import { CopySuccessIcon } from "../../assets/icons/copySuccessIcon";
+import "../../css/copyButton.css";
 export const CopyButton = ({ value }: { value: string }) => {
   const [copied, setCopied] = useState(false);
 
@@ -22,6 +22,7 @@ export const CopyButton = ({ value }: { value: string }) => {
       onClick={handleCopyClick}
       aria-disabled={copied}
       border={true}
+      type="button"
     >
       {copied ? <CopySuccessIcon /> : <CopyIcon />}
     </Button>

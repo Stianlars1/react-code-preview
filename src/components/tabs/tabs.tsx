@@ -1,5 +1,5 @@
-import { useLayoutEffect, useRef, useState } from "react";
-import { TabsType } from "../../../types/types";
+import React, { useLayoutEffect, useRef, useState } from "react";
+import { TabsType } from "../../types/types";
 
 export const Tabs = ({
   activeTab,
