@@ -1,0 +1,13 @@
+
+
+# Other unnecessary files
+node_modules/
+*.log
+*.tsbuildinfo
+
+# configuration files
+*.txt
+rollup.config.mjs
+.idea/
+dist
+**/*.tgz

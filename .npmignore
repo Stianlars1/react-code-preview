@@ -1,0 +1,21 @@
+# Source files :)
+src/
+
+
+# TypeScript files
+**/*.ts
+**/*.tsx
+!**/*.d.ts
+
+# Other unnecessary files
+node_modules/
+*.log
+*.tsbuildinfo
+
+# configuration files
+tsconfig.json
+*.txt
+shx.txt
+rollup.config.mjs
+.gitignore
+.idea/
