@@ -37,4 +37,8 @@ export default {
     terser({ compress: true }),
   ],
   external: ["react", "react-dom", /^shiki(\/.*)?$/],
+  onwarn(warning, warn) {
+    // Log warnings for further analysis
+    console.warn(warning);
+  },
 };
