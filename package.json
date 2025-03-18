@@ -37,8 +37,8 @@
     "url": "https://github.com/Stianlars1/react-code-preview/issues"
   },
   "peerDependencies": {
-    "react": "^18.0.0 || >=19.0.0-0",
-    "react-dom": "^18.0.0 || >=19.0.0-0"
+    "react": "^18.0.0 || ^19.0.0-rc",
+    "react-dom": "^18.0.0 || ^19.0.0-rc"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^23.0.0",

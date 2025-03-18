@@ -1,8 +1,10 @@
+// src/hooks/useHighlightCode.tsx
 import { useEffect, useState } from "react";
-import { BundledTheme } from "shiki/themes";
+import { BundledTheme } from "shiki";
 import { Themes, UseHighlightCode } from "../types/types";
 import { getCodeString } from "../utils/getCodeString";
 import { useTheme } from "./useTheme";
+import { getShikiHighlighter } from "../utils/shikiIniti";
 
 export const useHighlightCode = (
   codeString: string,
@@ -11,30 +13,24 @@ export const useHighlightCode = (
 ): UseHighlightCode => {
   const [highlightedCode, setHighlightedCode] = useState<string>("");
   const [formattedCodeString] = useState<string>(getCodeString(codeString));
-  const [loadingCode, setLoadingCode] = useState<boolean>(false);
+  const [loadingCode, setLoadingCode] = useState<boolean>(true);
 
   const { theme } = useTheme();
 
   useEffect(() => {
+    let mounted = true;
+
     const highlightCodeAsync = async () => {
-      setLoadingCode(true);
       try {
-        const { createHighlighter } = await import("shiki");
-        const highlighter = await createHighlighter({
-          langs: ["typescript"],
-          themes: [blackout as any],
-        });
+        const highlighter = await getShikiHighlighter();
+
+        if (!mounted) return;
 
         let themeToLoad =
           theme === "dark"
-            ? darkTheme
-              ? darkTheme
-              : "blackout"
-            : lightTheme
-              ? lightTheme
-              : "blackout";
+            ? (darkTheme ?? "blackout")
+            : (lightTheme ?? "blackout");
 
-        // Assuming the theme names are directly usable, otherwise adjust the mapping logic accordingly
         if (themeToLoad === "blackout") {
           await highlighter.loadTheme(blackout as unknown as BundledTheme);
         } else {
@@ -46,19 +42,25 @@ export const useHighlightCode = (
           theme:
             themeToLoad === "blackout" ? "lambda-studio-blackout" : themeToLoad,
         });
-        setHighlightedCode(html);
+
+        if (mounted) {
+          setHighlightedCode(html);
+          setLoadingCode(false);
+        }
       } catch (e) {
-        console.error(
-          "== highlightCodeAsync== \nError while highlighting code:",
-        );
-        console.error(e);
-      } finally {
-        setLoadingCode(false);
+        console.error("Error while highlighting code:", e);
+        if (mounted) {
+          setLoadingCode(false);
+        }
       }
     };
 
     highlightCodeAsync();
-  }, [darkTheme, lightTheme, theme]);
+
+    return () => {
+      mounted = false;
+    };
+  }, [darkTheme, lightTheme, theme, formattedCodeString]);
 
   return { highlightedCode, codeString: formattedCodeString, loadingCode };
 };

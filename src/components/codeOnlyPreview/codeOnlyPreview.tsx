@@ -1,12 +1,12 @@
-import { Suspense } from "react";
+import {Suspense} from "react";
 import "../../css/codePreview.css";
-import { useHighlightCode } from "../../hooks/useHighlightCode";
-import { PreviewOnlyCodeProps } from "../../types/types";
-import { cn } from "../../utils/cn";
-import { CopyButton } from "../copyButton/copyButton";
+import {useHighlightCode} from "../../hooks/useHighlightCode";
+import {PreviewOnlyCodeProps} from "../../types/types";
+import {cn} from "../../utils/cn";
+import {CopyButton} from "../copyButton/copyButton";
 
 export const CodeOnlyPreview = (props: PreviewOnlyCodeProps) => {
-  const { code, darkTheme, lightTheme, className, style } = props;
+  const { code, darkTheme, lightTheme, className, style, onCopied } = props;
   const { highlightedCode, codeString } = useHighlightCode(
     code,
     lightTheme,
@@ -19,7 +19,7 @@ export const CodeOnlyPreview = (props: PreviewOnlyCodeProps) => {
         <div className="code-preview__content">
           {highlightedCode && (
             <>
-              <CopyButton value={codeString} />
+              <CopyButton value={codeString} onCopied={onCopied} />
 
               <div
                 className="code-preview__content__code-wrapper"

@@ -1,18 +1,11 @@
-import {
-  ComponentType,
-  ReactElement,
-  ReactNode,
-  Suspense,
-  isValidElement,
-  useState,
-} from "react";
+import {ComponentType, isValidElement, ReactElement, ReactNode, Suspense, useState,} from "react";
 import "../../css/codePreview.css";
-import { useHighlightCode } from "../../hooks/useHighlightCode";
-import { defaultDarkTheme } from "../../libs/theme/theme";
-import { CodeAndPreviewProps, TabsType } from "../../types/types";
-import { cn } from "../../utils/cn";
-import { CopyButton } from "../copyButton/copyButton";
-import { Tabs } from "../tabs/tabs";
+import {useHighlightCode} from "../../hooks/useHighlightCode";
+import {defaultDarkTheme} from "../../libs/theme/theme";
+import {CodeAndPreviewProps, TabsType} from "../../types/types";
+import {cn} from "../../utils/cn";
+import {CopyButton} from "../copyButton/copyButton";
+import {Tabs} from "../tabs/tabs";
 
 export const CodeAndExamplePreview = ({
   component: PreviewComponent,
@@ -22,6 +15,7 @@ export const CodeAndExamplePreview = ({
   className,
   style,
   initialTab = "preview",
+    onCopied
 }: CodeAndPreviewProps) => {
   const [activeTab, setActiveTab] = useState<TabsType>(initialTab);
   const { highlightedCode, codeString, loadingCode } = useHighlightCode(
@@ -44,7 +38,7 @@ export const CodeAndExamplePreview = ({
 
           {activeTab === "code" && highlightedCode && !loadingCode && (
             <>
-              <CopyButton value={codeString} />
+              <CopyButton value={codeString} onCopied={onCopied} />
 
               {!loadingCode && (
                 <div

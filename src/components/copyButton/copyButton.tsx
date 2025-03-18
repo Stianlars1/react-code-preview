@@ -1,13 +1,16 @@
-import { copy } from "@stianlarsen/copy-to-clipboard";
-import { useState } from "react";
-import { CopyIcon } from "../../assets/icons/copyIcon";
-import { CopySuccessIcon } from "../../assets/icons/copySuccessIcon";
+import {copy} from "@stianlarsen/copy-to-clipboard";
+import {useState} from "react";
+import {CopyIcon} from "../../assets/icons/copyIcon";
+import {CopySuccessIcon} from "../../assets/icons/copySuccessIcon";
 import "../../css/copyButton.css";
 
-export const CopyButton = ({ value }: { value: string }) => {
+export const CopyButton = ({ value, onCopied }: { value: string, onCopied: () => void }) => {
   const [copied, setCopied] = useState(false);
   const handleCopyClick = async () => {
     await copy(value);
+    if (onCopied) {
+      onCopied()
+    }
     setCopied(true);
     setTimeout(() => {
       setCopied(false);

@@ -16,6 +16,7 @@
     "allowSyntheticDefaultImports": true,
     "importHelpers": true, // Use tslib helpers
     "declarationMap": false,
+
     "typeRoots": ["./node_modules/@types", "./src/types"]
   },
   "include": ["src"],
