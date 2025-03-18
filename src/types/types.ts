@@ -1,5 +1,5 @@
-import {CSSProperties} from "react";
-import {BundledTheme} from "shiki";
+import { CSSProperties } from "react";
+import { BundledTheme } from "shiki";
 
 export type Themes = BundledTheme | "blackout";
 export type TabsType = "preview" | "code";
@@ -10,7 +10,7 @@ export interface PreviewOnlyCodeProps {
   darkTheme?: Themes;
   className?: string;
   style?: CSSProperties;
-  onCopied: () => void
+  onCopied?: () => void;
 }
 
 export interface CodeAndPreviewProps {
@@ -21,7 +21,7 @@ export interface CodeAndPreviewProps {
   className?: string;
   style?: CSSProperties;
   initialTab?: TabsType;
-  onCopied: () => void
+  onCopied?: () => void;
 }
 
 export type CodePreviewProps = PreviewOnlyCodeProps | CodeAndPreviewProps;

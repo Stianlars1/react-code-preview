@@ -8,6 +8,7 @@ export interface PreviewOnlyCodeProps {
     darkTheme?: Themes;
     className?: string;
     style?: CSSProperties;
+    onCopied?: () => void;
 }
 export interface CodeAndPreviewProps {
     component: (() => JSX.Element) | JSX.Element | React.ComponentType<any>;
@@ -17,6 +18,7 @@ export interface CodeAndPreviewProps {
     className?: string;
     style?: CSSProperties;
     initialTab?: TabsType;
+    onCopied?: () => void;
 }
 export type CodePreviewProps = PreviewOnlyCodeProps | CodeAndPreviewProps;
 export interface UseHighlightCode {
