@@ -1,13 +1,25 @@
-
-
-# Other unnecessary files
+# Dependencies
 node_modules/
+
+# Build output
+dist/
+
+# Logs
 *.log
 *.tsbuildinfo
 
-# configuration files
-*.txt
-rollup.config.mjs
+# IDE
 .idea/
-dist
-**/*.tgz
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+coverage/
+
+# Package tarballs
+*.tgz

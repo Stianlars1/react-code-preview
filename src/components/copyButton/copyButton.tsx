@@ -4,7 +4,7 @@ import {CopyIcon} from "../../assets/icons/copyIcon";
 import {CopySuccessIcon} from "../../assets/icons/copySuccessIcon";
 import "../../css/copyButton.css";
 
-export const CopyButton = ({ value, onCopied }: { value: string, onCopied: () => void }) => {
+export const CopyButton = ({ value, onCopied }: { value: string; onCopied?: () => void }) => {
   const [copied, setCopied] = useState(false);
   const handleCopyClick = async () => {
     await copy(value);

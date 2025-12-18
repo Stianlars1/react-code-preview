@@ -1,21 +1,19 @@
-# Source files :)
+# Source files
 src/
 
+# Config files
+tsconfig.json
+tsup.config.ts
+.gitignore
+.prettierrc
 
-# TypeScript files
-**/*.ts
-**/*.tsx
-!**/*.d.ts
-
-# Other unnecessary files
+# Development
 node_modules/
 *.log
 *.tsbuildinfo
-
-# configuration files
-tsconfig.json
-*.txt
-shx.txt
-rollup.config.mjs
-.gitignore
 .idea/
+
+# Other
+*.tgz
+*.txt
+.DS_Store

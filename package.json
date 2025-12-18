@@ -1,24 +1,39 @@
 {
   "name": "@stianlarsen/react-code-preview",
-  "version": "1.1.14",
+  "version": "1.2.0",
   "description": "A React component that provides tabbed navigation for viewing a live component preview and its source code separately.",
-  "main": "dist/index.esm.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
   "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "clean": "shx rm -rf dist",
-    "build": "rollup -c",
+    "build": "tsup",
     "prebuild": "npm run clean",
-    "dev": "tsc --watch",
-    "prepare": "npm run build"
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
+    "type": "git",
     "url": "git+https://github.com/Stianlars1/react-code-preview.git"
   },
   "homepage": "https://react-code-preview.dev",
@@ -29,7 +44,9 @@
     "component",
     "live",
     "syntax",
-    "highlighting"
+    "highlighting",
+    "shiki",
+    "code-preview"
   ],
   "author": "Stian Larsen",
   "license": "MIT",
@@ -37,28 +54,19 @@
     "url": "https://github.com/Stianlars1/react-code-preview/issues"
   },
   "peerDependencies": {
-    "react": "^18 || ^19",
-    "react-dom": "^18 || ^19"
+    "react": ">=18.0.0 <20.0.0",
+    "react-dom": ">=18.0.0 <20.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^23.0.0",
-    "@rollup/plugin-json": "^6.1.0",
-    "@rollup/plugin-node-resolve": "^15.0.0",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^10.0.0",
     "@types/react": "^18 || ^19",
     "@types/react-dom": "^18 || ^19",
     "prettier": "^3.3.3",
-    "rollup": "^3.0.0",
-    "rollup-plugin-copy": "^3.5.0",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-typescript2": "^0.36.0",
     "shx": "^0.3.4",
+    "tsup": "^8.5.1",
     "typescript": "^5.6.3"
   },
   "dependencies": {
     "@stianlarsen/copy-to-clipboard": "^1.0.4",
-    "shiki": "^1.22.0",
-    "tslib": "^2.8.0"
+    "shiki": "^1.22.0"
   }
 }

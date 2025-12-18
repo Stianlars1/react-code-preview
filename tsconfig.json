@@ -1,23 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ES2020",
     "module": "ESNext",
-    "lib": ["dom", "esnext"],
-    "allowJs": false,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "jsx": "react-jsx",
     "declaration": true,
-    "emitDeclarationOnly": false,
+    "declarationMap": false,
+    "sourceMap": true,
     "outDir": "./dist",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "importHelpers": true, // Use tslib helpers
-    "declarationMap": false,
-
-    "typeRoots": ["./node_modules/@types", "./src/types"]
+    "noEmit": true,
+    "isolatedModules": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "**/__tests__/**"]
